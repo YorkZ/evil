@@ -827,7 +827,7 @@ cursor type is either `evil-force-cursor' or the current state."
   (when (and (boundp 'evil-local-mode) evil-local-mode)
     (let* ((state (or state evil-force-cursor evil-state 'normal))
            (default (or evil-default-cursor t))
-           (cursor (evil-state-property state :cursor t))
+           (cursor (or (evil-state-property state :cursor t) default))
            (color (or (and (stringp cursor) cursor)
                       (and (listp cursor)
                            (evil-member-if #'stringp cursor))

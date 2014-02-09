@@ -193,7 +193,7 @@ value of `indent-tabs-mode'."
   :type 'boolean
   :group 'evil)
 
-(defcustom evil-default-cursor t
+(defcustom evil-default-cursor (list (frame-parameter nil 'cursor-color) t)
   "The default cursor.
 May be a cursor type as per `cursor-type', a color string as passed
 to `set-cursor-color', a zero-argument function for changing the
